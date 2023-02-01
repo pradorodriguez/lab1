@@ -1,5 +1,11 @@
-name: Post welcome comment
+name: Post Welcome Comment
 
 on:
   pull_request:
     types: [opened]
+
+jobs:
+  build:
+    name: Post welcome comment
+    runs-on: ubuntu-latest
+    
