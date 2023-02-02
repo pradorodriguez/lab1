@@ -39,4 +39,9 @@ jobs:
         with:
           name: remark-lint-report
           path: public/
+          
+      - name: Check folders
+        run: |
+          ls -la
+          ls -la public/
 
