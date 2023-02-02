@@ -1,0 +1,27 @@
+name: Share Artifacts between jobs
+on: 
+  push: 
+    branches: 
+      - main
+jobs:
+  job_1_upload:
+    name: Upload File
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World" > file.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: file
+          path: file.txt
+      - run: ls -la
+
+  job_2_download:
+    name: Download File
+    runs-on: ubuntu-latest
+    needs: job_1_upload
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: file
+      - run: ls -la
+      - run: cat file.txt
