@@ -43,5 +43,4 @@ jobs:
       - name: Check folders
         run: |
           ls -la
-          ls -la public/
 
